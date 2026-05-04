@@ -1,0 +1,108 @@
+{
+  "timestamp": "2026-05-04T20:46:39.369Z",
+  "user": {
+    "name": "John Doe",
+    "role": "admin",
+    "permissions": [
+      "read",
+      "write",
+      "delete"
+    ]
+  },
+  "actions": [
+    {
+      "action": "collect_links",
+      "links": [
+        {
+          "text": "Playwright",
+          "href": "https://playwright.dev/"
+        },
+        {
+          "text": "Docs",
+          "href": "https://playwright.dev/docs/intro"
+        },
+        {
+          "text": "MCP",
+          "href": "https://playwright.dev/mcp/introduction"
+        },
+        {
+          "text": "CLI",
+          "href": "https://playwright.dev/agent-cli/introduction"
+        },
+        {
+          "text": "API",
+          "href": "https://playwright.dev/docs/api/class-playwright"
+        },
+        {
+          "text": "Node.js",
+          "href": "https://playwright.dev/#"
+        },
+        {
+          "text": "Node.js",
+          "href": "https://playwright.dev/"
+        },
+        {
+          "text": "Python",
+          "href": "https://playwright.dev/python/"
+        },
+        {
+          "text": "Java",
+          "href": "https://playwright.dev/java/"
+        },
+        {
+          "text": ".NET",
+          "href": "https://playwright.dev/dotnet/"
+        },
+        {
+          "text": "",
+          "href": "https://github.com/microsoft/playwright"
+        },
+        {
+          "text": "",
+          "href": "https://aka.ms/playwright/discord"
+        },
+        {
+          "text": "TypeScript",
+          "href": "https://playwright.dev/docs/intro"
+        },
+        {
+          "text": "Python",
+          "href": "https://playwright.dev/python/docs/intro"
+        },
+        {
+          "text": ".NET",
+          "href": "https://playwright.dev/dotnet/docs/intro"
+        },
+        {
+          "text": "Java",
+          "href": "https://playwright.dev/java/docs/intro"
+        },
+        {
+          "text": "Get started",
+          "href": "https://playwright.dev/docs/intro"
+        },
+        {
+          "text": "Star",
+          "href": "https://github.com/microsoft/playwright"
+        },
+        {
+          "text": "87k+",
+          "href": "https://github.com/microsoft/playwright/stargazers"
+        }
+      ]
+    },
+    {
+      "action": "navigate_and_extract",
+      "from": "https://playwright.dev",
+      "to": "https://playwright.dev/docs/intro",
+      "clickedLink": "Docs",
+      "extractedContent": {
+        "title": "Installation | Playwright",
+        "h1": "Installation",
+        "firstParagraph": "Playwright Test is an end-to-end test framework for modern web apps. It bundles test runner, assertions, isolation, parallelization and rich tooling. Playwright supports Chromium, WebKit and Firefox on Windows, Linux and macOS, locally or in CI, headless or headed, with native mobile emulation for Chrome (Android) and Mobile Safari.",
+        "codeBlockCount": 19
+      }
+    }
+  ],
+  "errors": []
+}

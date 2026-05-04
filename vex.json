@@ -1,0 +1,46 @@
+{
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "https://openvex.dev/docs/public/vex-1",
+  "author": "sylwolveryn",
+  "role": "Software author",
+  "timestamp": "2026-05-04T12:00:00Z",
+  "version": 1,
+  "statements": [
+    {
+      "vulnerability": {
+        "name": "CVE-2026-33671"
+      },
+      "products": [
+        {
+          "@id": "pkg:npm/picomatch@4.0.3"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path - picomatch used only by build tools, not at runtime in headless browser automation"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2026-33750"
+      },
+      "products": [
+        {
+          "@id": "pkg:npm/brace-expansion@5.0.4"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path - brace-expansion only used during package installation, not in production execution"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2026-33672"
+      },
+      "products": [
+        {
+          "@id": "pkg:npm/picomatch@4.0.3"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path - picomatch used only by build tools, not at runtime"
+    }
+  ]
+}

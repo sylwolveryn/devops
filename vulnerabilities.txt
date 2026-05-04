@@ -1,0 +1,15 @@
+Most of these are from ffmpeg (pulled by Chromium for media playback) and mesa/libjxl (graphics libraries). In a headless automation container, we don't need:
+
+ffmpeg - video/audio playback (unnecessary for web scraping)
+
+mesa-dri-gallium - GPU drivers (headless Chrome uses SwiftShader)
+
+libjxl - JPEG XL image format (not needed for screenshots)
+
+all  alpine/ffmpeg video/audio playback. Not an issue, max usage is and if playwright uses it for creating the screenshots, videos.
+
+libsndfile pulled in by Chromium - Audio file processing library. Runtime risk: Near zero, for playwright automation.
+
+curl - accepted risk, zero if we do not curl anything, otherwise it's on the usage not the tool
+
+avahi - Service discovery daemon (mDNS/DNS-SD like Bonjour)
