@@ -2,61 +2,103 @@
 Devops sandbox
 
 
-# build and push
+important things:
+
+- pre-baked playwright docker image with
+  - **pnpm** enabled
+  - **alpine** based not ubuntu based
+  - only **chromimum** as available, no firefox, or edge, etc...
+  - **preinstalled npm packages**:
+    - pnpm add \
+      playwright \
+      @playwright/test \
+      typescript \
+      playwright-ctrf-json-reporter \
+      dotenv \
+      jwt-decode \
+      uuid
+  - **+audit fix**
+  - **home dir**: /home/pwuser/app
+  - chromium is available under: '/usr/lib/chromium/chromium'
+    - this must be set as **executablePath** inside **playwright config**
+  - 
+
+## build and push
 
 
-# Log in to Docker Hub
+### Log in to Docker Hub
 docker login
 
-# (Optional but recommended) Create and use a new builder that can handle multiple platforms
-# Start the builder
+### Start the builder
+```shell
+docker buildx rm pbuilder
+```
+
+```shell
 docker buildx create --name pbuilder --use
+```
+
+```shell
 docker buildx inspect --bootstrap
+```
 
-# Build for both architectures and push in one command ALPINE
-docker buildx build -f playwright-pnpm-alpine.dockerfile --platform linux/amd64,linux/arm64 -t sylwolveryn/playwright-pnpm-alpine:latest  -t sylwolveryn/playwright-pnpm-alpine:1.0.0 --push .
-docker buildx build -f playwright-pnpm-alpine.dockerfile --platform linux/amd64,linux/arm64 -t sylwolveryn/playwright-pnpm-alpine:latest --push .
+### Build for both architectures and push in one command ALPINE
+```shell
+docker buildx build -f playwright-pnpm-alpine.dockerfile --platform linux/amd64,linux/arm64 -t sylwolveryn/playwright-pnpm-alpine:latest  -t sylwolveryn/playwright-pnpm-alpine:1.0.4 --push .
+```
 
-
-# Build for both architectures and push in one command NOBLE
+### Build for both architectures and push in one command NOBLE // DEPRECATED, NO MORE UBUNTU
+```shell
 docker buildx build -f playwright-pnpm-noble.dockerfile --platform linux/amd64,linux/arm64 -t sylwolveryn/playwright-pnpm-noble:latest --push .
+```
 
 ## cleanup old builders
 
 ### List all builders
+```shell
 docker buildx ls
+```
 
 ### Remove specific builders
+```shell
 docker buildx rm pbuilder
+```
 
 ### Or remove all but the default and start fresh
+```shell
 docker buildx rm pbuilder pbuilderv2 pbuilderv3
+```
+
+```shell
 docker buildx create --name mybuilder --use
+```
 
-# Cleanup
+## Cleanup
 
-## See disk usage breakdown
+### See disk usage breakdown
+```shell
 docker system df
+```
 
-# See detailed build cache
+### See detailed build cache
+```shell
 docker buildx du
+```
 
-# List all images
+### List all images
+```shell
 docker images
+```
 
-# List all builders
-docker buildx ls
-
-# Remove everything unused - stopped containers, netdocker system prune -a -f
+### Remove everything unused - stopped containers, netdocker system prune -a -f
+```shell
 docker buildx prune -a -f
+```
 
-# Specifically clean buildx cache (often takes the most space)
+### Specifically clean buildx cache (often takes the most space)
+```shell
 docker buildx prune -a -f
-
-# Remove old builders
-docker buildx rm pbuilder pbuilderv2 2>/dev/null
-docker buildx rm $(docker buildx ls -q | grep -v default | grep -v playwright-builder) 2>/dev/null
-
+```
 
 ## AUDIT
 

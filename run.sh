@@ -2,8 +2,8 @@
 
 mkdir -p ./output
 
-echo "📦 Pulling latest image..."
-docker pull sylwolveryn/playwright-pnpm-alpine:latest
+echo "📦 Pulling latest: 1.0.4 image..."
+docker pull sylwolveryn/playwright-pnpm-alpine:1.0.4
 
 echo "🚀 Running Playwright automation..."
 docker run --rm \
