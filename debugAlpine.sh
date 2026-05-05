@@ -8,3 +8,6 @@ echo $PATH
 ls -la $PNPM_HOME
 pnpm list -g
 node -e "console.log(require.resolve('playwright'))" #  /home/pwuser/app/node_modules/.pnpm/playwright@1.59.1/node_modules/playwright/index.js
+find /home/pwuser/app -name "playwright" -type f -executable
+# /home/pwuser/app/node_modules/.bin/playwright
+# /home/pwuser/app/node_modules/.pnpm/playwright@1.59.1/node_modules/playwright/node_modules/.bin/playwright
